@@ -1,3 +1,31 @@
+lang_lang:
+    resource: "@LangBundle/Controller/LangController.php"
+    type:     annotation
+
+project_project:
+    resource: "@ProjectBundle/Controller/ProjectController.php"
+    type:     annotation
+
+translate_string:
+    resource: "@TranslateStringBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+string_key:
+    resource: "@StringKeyBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+lang:
+    resource: "@LangBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+user:
+    resource: "@UserBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 main:
     resource: "@MainBundle/Controller/"
     type:     annotation
@@ -8,6 +36,5 @@ project:
     type:     annotation
     prefix:   /
 
-app:
-    resource: "@AppBundle/Controller/"
-    type:     annotation
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"

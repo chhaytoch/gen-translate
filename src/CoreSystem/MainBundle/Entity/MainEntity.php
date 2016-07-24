@@ -6,35 +6,29 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * MainEntity
- *
- * @ORM\Table(name="main_system")
- * @ORM\Entity(repositoryClass="CoreSystem\MainBundle\Repository\MainEntityRepository")
  */
 class MainEntity
 {
     /**
-     * @var int
-     *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(name="id", type="guid")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\GeneratedValue(strategy="UUID")
      */
-    private $id;
+    protected $id = null;
 
     /**
      * @var bool
      *
      * @ORM\Column(name="active", type="boolean")
      */
-    private $active;
+    protected $active = 1;
 
     /**
      * @var bool
      *
      * @ORM\Column(name="deleted", type="boolean")
      */
-    private $deleted;
-
+    protected $deleted = 0;
 
     /**
      * Get id
