@@ -13,6 +13,12 @@ use FOS\UserBundle\Model\User as BaseUser;
  */
 class User extends BaseUser
 {
+    public function __construct()
+    {
+        parent::__construct();
+        $this->roles = array('ROLE_USER');
+    }
+
     /**
      * @ORM\Column(name="id", type="guid")
      * @ORM\Id
@@ -20,10 +26,29 @@ class User extends BaseUser
      */
     protected $id = null;
 
-    public function __construct()
+    /**
+     * @ORM\ManyToMany(targetEntity="Frontend\ProjectBundle\Entity\Project")
+     * @ORM\JoinTable(name="user_project",
+     *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="project_id", referencedColumnName="id")}
+     *      )
+     */
+    private $project;
+
+    /**
+     * @return mixed
+     */
+    public function getProject()
     {
-        parent::__construct();
-        $this->roles = array('ROLE_USER');
+        return $this->project;
+    }
+
+    /**
+     * @param mixed $project
+     */
+    public function setProject($project)
+    {
+        $this->project = $project;
     }
 
     /**

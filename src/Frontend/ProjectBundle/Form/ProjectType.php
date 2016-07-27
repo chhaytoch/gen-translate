@@ -2,13 +2,10 @@
 
 namespace Frontend\ProjectBundle\Form;
 
-use Doctrine\ORM\EntityRepository;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Validator\Tests\Fixtures\Entity;
 
 class ProjectType extends AbstractType
 {
@@ -21,7 +18,10 @@ class ProjectType extends AbstractType
         $builder
             ->add('projectName')
             ->add('description')
-            ->add('lang')
+            ->add('lang', ChoiceType::class, array(
+                'expanded' => false,
+                'multiple' => true
+            ))
         ;
     }
     

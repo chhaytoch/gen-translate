@@ -10,14 +10,12 @@ use Doctrine\ORM\Mapping as ORM;
 class UserLogEntity extends TimestampEntity
 {
     /**
-     * @ORM\ManyToOne(targetEntity="Frontend\UserBundle\Entity\User")
-     * @ORM\JoinColumn(name="created_user", referencedColumnName="id")
+     * @ORM\Column(name="created_user", type="string")
      */
     protected $createdUser;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Frontend\UserBundle\Entity\User")
-     * @ORM\JoinColumn(name="modified_user", referencedColumnName="id")
+     * @ORM\Column(name="modified_user", type="string")
      */
     protected $modifiedUser;
 

@@ -2,6 +2,7 @@
 
 namespace Frontend\StringKeyBundle\Entity;
 
+use CoreSystem\MainBundle\Entity\UserLogEntity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -10,26 +11,54 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="string_key")
  * @ORM\Entity(repositoryClass="Frontend\StringKeyBundle\Repository\StringKeyRepository")
  */
-class StringKey
+class StringKey extends UserLogEntity
 {
     /**
-     * @var int
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\Column(name="key_label", type="string")
      */
-    private $id;
-
+    private $keyLabel;
 
     /**
-     * Get id
-     *
-     * @return int
+     * @ORM\ManyToMany(targetEntity="Frontend\OperatingSystemBundle\Entity\OperatingSystem")
+     * @ORM\JoinTable(name="key_os",
+     *      joinColumns={@ORM\JoinColumn(name="string_key", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="os", referencedColumnName="id")}
+     *      )
      */
-    public function getId()
+    private $os;
+
+    /**
+     * @return mixed
+     */
+    public function getOs()
     {
-        return $this->id;
+        return $this->os;
     }
+
+    /**
+     * @param mixed $os
+     */
+    public function setOs($os)
+    {
+        $this->os = $os;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getKeyLabel()
+    {
+        return $this->keyLabel;
+    }
+
+    /**
+     * @param mixed $keyLabel
+     */
+    public function setKeyLabel($keyLabel)
+    {
+        $this->keyLabel = $keyLabel;
+    }
+    
+    
 }
 

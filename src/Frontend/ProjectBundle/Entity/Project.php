@@ -15,24 +15,13 @@ use Frontend\LangBundle\Entity\Lang;
  */
 class Project extends UserLogEntity
 {
-    public function __construct()
-    {
-        $this->lang = new ArrayCollection();
-    }
-
     /**
-     * @ORM\ManyToOne(targetEntity="Frontend\UserBundle\Entity\User")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
-     */
-    private $user;
-
-    /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(name="project_name", type="string")
      */
     private $projectName;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(name="description", type="text")
      */
     private $description;
 
@@ -44,6 +33,15 @@ class Project extends UserLogEntity
      *      )
      */
     private $lang;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="Frontend\OperatingSystemBundle\Entity\OperatingSystem")
+     * @ORM\JoinTable(name="project_os",
+     *      joinColumns={@ORM\JoinColumn(name="project", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="os", referencedColumnName="id")}
+     *      )
+     */
+    private $os;
 
     /**
      * @return mixed
@@ -59,22 +57,6 @@ class Project extends UserLogEntity
     public function setProjectName($projectName)
     {
         $this->projectName = $projectName;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getUser()
-    {
-        return $this->user;
-    }
-
-    /**
-     * @param mixed $user
-     */
-    public function setUser($user)
-    {
-        $this->user = $user;
     }
 
     /**
@@ -104,9 +86,25 @@ class Project extends UserLogEntity
     /**
      * @param mixed $lang
      */
-    public function setLang(Lang $lang)
+    public function setLang($lang)
     {
-        $this->lang[] = $lang;
+        $this->lang = $lang;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getOs()
+    {
+        return $this->os;
+    }
+
+    /**
+     * @param mixed $os
+     */
+    public function setOs($os)
+    {
+        $this->os = $os;
     }
 }
 
