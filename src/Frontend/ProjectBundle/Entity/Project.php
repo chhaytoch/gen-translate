@@ -88,14 +88,6 @@ class Project extends UserLogEntity
     {
         return $this->lang;
     }
-//
-//    /**
-//     * @VirtualProperty
-//     * @SerializedName("langauge")
-//     */
-//    public function getCustomLang(){
-//        return array_values($this->getLang()->toArray());
-//    }
 
     /**
      * @param mixed $lang

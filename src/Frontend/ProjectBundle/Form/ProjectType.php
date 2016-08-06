@@ -17,31 +17,18 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class ProjectType extends AbstractType
 {
-    protected $em;
-
-    public function __construct(EntityManager $entityManager)
-    {
-        $this->em =$entityManager;
-    }
-
     /**
      * @param FormBuilderInterface $builder
      * @param array $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $lang = $this->em->getRepository('ProjectBundle:Project')->findAll();
-        
         $builder
             ->add('projectName')
+            ->add('lang', CollectionType::class,array(
+                'entry_type' => LangType::class
+            ))
             ->add('description')
-            ->add('lang', EntityType::class, [
-                'placeholder' => 'Choose an option',
-                'choices' => $lang,
-
-                'multiple' => true,
-                'expanded' => false
-            ])
         ;
     }
     

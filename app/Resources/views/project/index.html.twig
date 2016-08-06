@@ -1,49 +1,63 @@
 {% extends 'base.html.twig' %}
 
+{% block title %} GenTran Project List{% endblock %}
 {% block body %}
-    <h1>Project list</h1>
+    <div class="row">
+        <div class="large-12">
+            <h1>Project list</h1>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Projectname</th>
-                <th>Description</th>
-                <th>Createddate</th>
-                <th>Modifieddate</th>
-                <th>Id</th>
-                <th>Active</th>
-                <th>Deleted</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for project in projects %}
-            <tr>
-                <td><a href="{{ path('project_show', { 'id': project.id }) }}">{{ project.projectName }}</a></td>
-                <td>{{ project.description }}</td>
-                <td>{% if project.createdDate %}{{ project.createdDate|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{% if project.modifiedDate %}{{ project.modifiedDate|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{{ project.id }}</td>
-                <td>{% if project.active %}Yes{% else %}No{% endif %}</td>
-                <td>{% if project.deleted %}Yes{% else %}No{% endif %}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('project_show', { 'id': project.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('project_edit', { 'id': project.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+            {#<a href="{{ path('project_new') }}" class="button success">Create a Project</a>#}
+            <a data-toggle="createProjectModal" class="button success">Create a Project</a>
 
-    <ul>
-        <li>
-            <a href="{{ path('project_new') }}">Create a new entry</a>
-        </li>
-    </ul>
+            <div class="reveal" id="createProjectModal" data-reveal data-close-on-click="true" data-animation-in="fade-in" data-animation-out="fade-out">
+                {{ form_start(form) }}
+                {{ form_widget(form) }}
+
+                <input type="submit" value="Create" />
+                {{ form_end(form) }}
+            </div>
+            <table class="hover">
+                <thead>
+                <tr>
+                    <th>Projectname</th>
+                    <th>Languages</th>
+                    <th>Operating System</th>
+                    <th>Description</th>
+                    <th>Createddate</th>
+                    <th>Modifieddate</th>
+                    <th>Active</th>
+                    <th>Deleted</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for project in projects %}
+                    <tr>
+
+                        <td><a href="{{ path('project_show', { 'id': project.id }) }}">{{ project.projectName }}</a></td>
+                        <td></td>
+                        <td></td>
+                        <td>{{ project.description }}</td>
+                        <td>{% if project.createdDate %}{{ project.createdDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                        <td>{% if project.modifiedDate %}{{ project.modifiedDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                        <td>{% if project.active %}Yes{% else %}No{% endif %}</td>
+                        <td>{% if project.deleted %}Yes{% else %}No{% endif %}</td>
+                        <td>
+                            <ul class="no-bullet">
+                                <li>
+                                    <a href="{{ path('project_show', { 'id': project.id }) }}" class="button warning input-group">show</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('project_edit', { 'id': project.id }) }}" class="button primary input-group">edit</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
 {% endblock %}

@@ -26,11 +26,19 @@ class ProjectController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
+        $project = new Project();
+
+//        $lang = $em->getRepository('LangBundle:Lang')->findAll();
+//
+//        $project->setLang($lang);
+
+        $form = $this->createForm('Frontend\ProjectBundle\Form\ProjectType', $project);
 
         $projects = $em->getRepository('ProjectBundle:Project')->findAll();
 
         return $this->render('project/index.html.twig', array(
             'projects' => $projects,
+            'form' => $form->createView()
         ));
     }
 
