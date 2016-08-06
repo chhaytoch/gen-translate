@@ -1,4 +1,0 @@
-services:
-#    translate_string.example:
-#        class: Frontend\TranslateStringBundle\Example
-#        arguments: ["@service_id", "plain_value", %parameter%]

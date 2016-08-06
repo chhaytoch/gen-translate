@@ -1,3 +1,8 @@
+home_page:
+    resource: "@HomePageBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 string_value:
     resource: "@StringValueBundle/Controller/"
     type:     annotation
@@ -5,19 +10,6 @@ string_value:
 
 operating_system:
     resource: "@OperatingSystemBundle/Controller/"
-    type:     annotation
-    prefix:   /
-
-lang_lang:
-    resource: "@LangBundle/Controller/LangController.php"
-    type:     annotation
-
-project_project:
-    resource: "@ProjectBundle/Controller/ProjectController.php"
-    type:     annotation
-
-translate_string:
-    resource: "@TranslateStringBundle/Controller/"
     type:     annotation
     prefix:   /
 
@@ -33,11 +25,6 @@ lang:
 
 user:
     resource: "@UserBundle/Controller/"
-    type:     annotation
-    prefix:   /
-
-main:
-    resource: "@MainBundle/Controller/"
     type:     annotation
     prefix:   /
 

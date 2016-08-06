@@ -10,12 +10,12 @@ use Doctrine\ORM\Mapping as ORM;
 class UserLogEntity extends TimestampEntity
 {
     /**
-     * @ORM\Column(name="created_user", type="string")
+     * @ORM\Column(name="created_user", type="string", nullable=true)
      */
     protected $createdUser;
 
     /**
-     * @ORM\Column(name="modified_user", type="string")
+     * @ORM\Column(name="modified_user", type="string", nullable=true)
      */
     protected $modifiedUser;
 

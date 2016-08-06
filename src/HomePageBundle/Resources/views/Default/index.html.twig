@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Translate String{% endblock %}
+
+{% block body %}
+    <div class="row align-center">
+        <div class="small-6 small-centered columns">
+            <div class="button-group expanded text-center">
+                <a href="{{ path('fos_user_security_login') }}" class="success button">Login</a>
+                <a href="{{ path('fos_user_registration_register') }}" class="warning  button">Register</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

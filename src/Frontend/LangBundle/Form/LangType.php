@@ -16,12 +16,6 @@ class LangType extends AbstractType
     {
         $builder
             ->add('langName')
-//            ->add('createdDate', 'datetime')
-//            ->add('modifiedDate', 'datetime')
-//            ->add('active')
-//            ->add('deleted')
-//            ->add('createdUser')
-//            ->add('modifiedUser')
         ;
     }
     

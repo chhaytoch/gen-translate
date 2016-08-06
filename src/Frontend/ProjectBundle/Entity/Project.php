@@ -15,6 +15,12 @@ use Frontend\LangBundle\Entity\Lang;
  */
 class Project extends UserLogEntity
 {
+    public function __construct()
+    {
+        $this->lang = new ArrayCollection();
+        $this->os = new ArrayCollection();
+    }
+
     /**
      * @ORM\Column(name="project_name", type="string")
      */
@@ -82,13 +88,21 @@ class Project extends UserLogEntity
     {
         return $this->lang;
     }
+//
+//    /**
+//     * @VirtualProperty
+//     * @SerializedName("langauge")
+//     */
+//    public function getCustomLang(){
+//        return array_values($this->getLang()->toArray());
+//    }
 
     /**
      * @param mixed $lang
      */
     public function setLang($lang)
     {
-        $this->lang = $lang;
+        $this->lang[] = $lang;
     }
 
     /**

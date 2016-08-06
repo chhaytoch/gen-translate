@@ -2,6 +2,7 @@
 
 namespace Frontend\ProjectBundle\Controller;
 
+use Frontend\LangBundle\Entity\Lang;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;

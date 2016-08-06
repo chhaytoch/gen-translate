@@ -50,7 +50,7 @@ class LangController extends Controller
             $em->persist($lang);
             $em->flush();
 
-            return $this->redirectToRoute('lang_show', array('id' => $lang->getId()));
+            return $this->redirectToRoute('lang_index', array('id' => $lang->getId()));
         }
 
         return $this->render('lang/new.html.twig', array(

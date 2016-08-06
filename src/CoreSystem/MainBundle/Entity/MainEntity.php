@@ -19,14 +19,14 @@ class MainEntity
     /**
      * @var bool
      *
-     * @ORM\Column(name="active", type="boolean")
+     * @ORM\Column(name="active", type="boolean", nullable=true)
      */
     protected $active = 1;
 
     /**
      * @var bool
      *
-     * @ORM\Column(name="deleted", type="boolean")
+     * @ORM\Column(name="deleted", type="boolean", nullable=true)
      */
     protected $deleted = 0;
 
