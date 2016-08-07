@@ -3,11 +3,26 @@
 {% block title %}Translate String{% endblock %}
 
 {% block body %}
-    <div class="row align-center">
-        <div class="small-6 small-centered columns">
-            <div class="button-group expanded text-center">
-                <a href="{{ path('fos_user_security_login') }}" class="success button">Login</a>
-                <a href="{{ path('fos_user_registration_register') }}" class="warning  button">Register</a>
+    <div class="homepage-layout">
+        <div class="center-screen">
+            <div class="row align-center">
+                <div class="small-8 small-centered text-center">
+                    <h1 class="title">Welcome to GenTran!</h1>
+                    <p class="description">
+                        GenTran is a simple application to manage your localize string file
+                        where you can create keys string, languages, operation systems for you project.
+                    </p>
+                    <p class="callToAction">Register to manage your localize files right now!</p>
+                </div>
+            </div>
+
+            <div class="row align-center">
+                <div class="small-6 small-centered columns">
+                    <div class="small button-group expanded text-center">
+                        <a href="{{ path('fos_user_security_login') }}" class="success button">Login</a>
+                        <a href="{{ path('fos_user_registration_register') }}" class="warning button">Register</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

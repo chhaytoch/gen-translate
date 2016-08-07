@@ -1,8 +1,9 @@
-@import 'settings/settings';
-@import 'foundation';
-
-@import 'components/animation';
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700);
+@import 'vendor/settings/settings';
+@import 'vendor/foundation';
+@import 'vendor/components/animation';
 
 @include foundation-everything;
 
+@import "partials/base";
 
